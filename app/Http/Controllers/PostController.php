@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 class PostController extends Controller
 {
-    public function index($id=null){
-        return  $id?new PostResource(Post::findOrFail($id)):new PostResource(Post::findOrFail($id));
+    public function index(){
+        $post = Post::with('user')->all();
+        return  PostResource::collection(Post::all());
     }
 }
