@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Resources\PostResource;
+use App\Http\Resources\UserResource;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\User;
 class PostController extends Controller
 {
     public function index(){
-        $post = Post::with('user')->all();
-        return  PostResource::collection(Post::all());
+        $users = User::with('roles')->get();
+        return  UserResource::collection($users);
     }
 }

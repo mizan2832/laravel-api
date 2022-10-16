@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-class PostResource extends JsonResource
+class RoleResource extends JsonResource
 {
     
     
@@ -11,10 +11,9 @@ class PostResource extends JsonResource
     {
         return  [
             'id' => $this->id,
-            'title' => $this->title,
-            'description' => $this->description
-
-
+            'name' => $this->name,
         ];
     }
+
+    
 }
